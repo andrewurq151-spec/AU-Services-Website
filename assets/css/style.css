@@ -1,0 +1,990 @@
+/* =========================================================
+   AU Accounting Services — shared stylesheet
+   Brand palette (see Colours.docx):
+     Gold          #D4AF37  premium accent / highlights
+     Navy          #0A1F44  headers / primary branding
+     Charcoal      #4B4B4B  secondary text
+     Black         #000000  strong contrast
+     White         #FFFFFF  backgrounds
+     Light grey    #E5E5E5  dividers / secondary backgrounds
+   ========================================================= */
+
+:root {
+  --g: #D4AF37;   /* gold */
+  --n: #0A1F44;   /* navy */
+  --lg: #E5E5E5;  /* light grey */
+  --ch: #4B4B4B;  /* charcoal */
+  --gd: #8B6914;  /* darker gold, hover states */
+  --border: #ddd;
+  /* Very subtle, low-opacity textures for the large flat navy sections so
+     they don't read as an empty fill. Two different rules apply depending
+     on the component:
+     - The footer is deliberately the SAME texture (grid-fine) on all 5
+       pages, per Andy — one uniform footer treatment site-wide.
+     - Everywhere else, every navy section gets its OWN distinct pattern —
+       not just neighbouring ones on the same page, but any two anywhere on
+       the site, including the page-header component repeated across
+       About/Services/Reviews/Contact. See the comments next to where each
+       is applied for which spot it belongs to. The Client Assay Report
+       panel (reviews.html) is the one deliberate exception: it reuses the
+       Gold Journey band's dots pattern, per Andy reverting it back to how
+       it looked originally rather than getting a new unique one.
+     If a new navy-textured section is ever added (other than the footer),
+     either reuse a pattern from a section that's far away and unlikely to
+     be compared side by side, or add a new one here rather than repeating
+     an existing one. Several patterns below (vertical, horizontal, dots-sm,
+     dots-lg) are currently unused, freed up when the footers were unified
+     — available to reuse for a future distinct section rather than
+     inventing a new one from scratch. */
+  --navy-texture-diag: repeating-linear-gradient(135deg, rgba(255,255,255,.028) 0px, rgba(255,255,255,.028) 1px, transparent 1px, transparent 30px);
+  --navy-texture-dots: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1.4px);
+  --navy-texture-grid: repeating-linear-gradient(0deg, rgba(255,255,255,.022) 0, rgba(255,255,255,.022) 1px, transparent 1px, transparent 34px), repeating-linear-gradient(90deg, rgba(255,255,255,.022) 0, rgba(255,255,255,.022) 1px, transparent 1px, transparent 34px);
+  --navy-texture-vertical: repeating-linear-gradient(90deg, rgba(255,255,255,.026) 0, rgba(255,255,255,.026) 1px, transparent 1px, transparent 26px);
+  --navy-texture-diag2: repeating-linear-gradient(45deg, rgba(255,255,255,.03) 0, rgba(255,255,255,.03) 1px, transparent 1px, transparent 24px);
+  --navy-texture-diag3: repeating-linear-gradient(160deg, rgba(255,255,255,.026) 0, rgba(255,255,255,.026) 1px, transparent 1px, transparent 38px);
+  --navy-texture-diag4: repeating-linear-gradient(20deg, rgba(255,255,255,.03) 0, rgba(255,255,255,.03) 1px, transparent 1px, transparent 22px);
+  --navy-texture-diag5: repeating-linear-gradient(110deg, rgba(255,255,255,.028) 0, rgba(255,255,255,.028) 1px, transparent 1px, transparent 33px);
+  --navy-texture-horizontal: repeating-linear-gradient(0deg, rgba(255,255,255,.024) 0, rgba(255,255,255,.024) 1px, transparent 1px, transparent 28px);
+  --navy-texture-grid-fine: repeating-linear-gradient(0deg, rgba(255,255,255,.02) 0, rgba(255,255,255,.02) 1px, transparent 1px, transparent 20px), repeating-linear-gradient(90deg, rgba(255,255,255,.02) 0, rgba(255,255,255,.02) 1px, transparent 1px, transparent 20px);
+  --navy-texture-cross: repeating-linear-gradient(45deg, rgba(255,255,255,.02) 0, rgba(255,255,255,.02) 1px, transparent 1px, transparent 40px), repeating-linear-gradient(135deg, rgba(255,255,255,.02) 0, rgba(255,255,255,.02) 1px, transparent 1px, transparent 40px);
+  --navy-texture-dots-lg: radial-gradient(rgba(255,255,255,.05) 1.6px, transparent 2px);
+  --navy-texture-dots-sm: radial-gradient(rgba(255,255,255,.07) 0.8px, transparent 1.2px);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ch);
+  line-height: 1.65;
+  background: #fff;
+}
+
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* Utility classes: apply one of the distinct navy textures (see :root) to
+   sections styled inline with background-color rather than a CSS class.
+   Each is used by exactly one kind of section so they never repeat back
+   to back — see the comment on the --navy-texture-* variables above. */
+.navy-texture { background-image: var(--navy-texture-diag); }         /* hero (index.html) */
+.navy-texture-dots { background-image: var(--navy-texture-dots); background-size: 20px 20px; } /* Gold Journey band (index.html) */
+.navy-texture-cross { background-image: var(--navy-texture-cross); }  /* "Our mission" band (about.html) */
+
+/* Full-bleed glowing gold seam — marks a hard boundary between two navy
+   sections stacked directly on top of each other (e.g. hero → Gold
+   Journey band) so they read as distinct blocks instead of bleeding
+   into one continuous field. */
+.section-seam-top { position: relative; }
+.section-seam-top::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212,175,55,.5) 20%, rgba(212,175,55,.85) 50%, rgba(212,175,55,.5) 80%, transparent 100%);
+  box-shadow: 0 6px 18px -4px rgba(212,175,55,.35);
+  pointer-events: none;
+}
+
+/* Layout */
+.w { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+@media (max-width: 640px) {
+  .w { padding: 0 20px; }
+}
+
+/* Homepage hero — the heading/paragraph were deliberately enlarged (see the
+   inline styles on the hero section in index.html) so the copy itself fills
+   the section without adding a decorative element. Those are large fixed
+   inline sizes though, so scale them back down on narrower screens or the
+   heading wraps awkwardly / crowds the buttons. */
+@media (max-width: 760px) {
+  .hero h1 { font-size: 52px !important; }
+  .hero p { font-size: 17px !important; }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: 38px !important; }
+  .hero p { font-size: 15.5px !important; }
+}
+
+/* "Our mission" hero band (about.html) — scale the large pull-quote-style
+   statement down on narrower screens so it doesn't crowd or overflow.
+   The statement is split into two parts — a white lead-in and a gold
+   pay-off — each forced onto its own line (see about.html) and each
+   tuned (font-size + max-width) to wrap onto exactly two lines of its
+   own on typical desktop/tablet widths, so white and gold never share
+   a line and neither runs past a clean two-line block. Below ~760px
+   the two parts naturally wrap onto more lines — deliberately not
+   forced to two there, since fitting this much copy onto two lines on
+   a phone would mean shrinking the type well below the punchy size
+   Andy asked for when this band was first made to "pop". */
+@media (max-width: 1279px) and (min-width: 1000px) {
+  .mission-statement { font-size: 24px !important; }
+  .mission-statement .mission-white { max-width: 90vw !important; }
+  .mission-statement .mission-gold { max-width: 80vw !important; }
+}
+@media (max-width: 999px) and (min-width: 761px) {
+  .mission-statement { font-size: 18px !important; }
+  .mission-statement .mission-white { max-width: 92vw !important; }
+  .mission-statement .mission-gold { max-width: 84vw !important; }
+}
+@media (max-width: 760px) {
+  .mission-statement { font-size: 23px !important; }
+}
+@media (max-width: 480px) {
+  .mission-statement { font-size: 19px !important; }
+}
+
+/* Gold double-rule divider under headings */
+.r {
+  display: block;
+  height: 5px;
+  background:
+    linear-gradient(var(--g), var(--g)) 0 0/100% 2.5px no-repeat,
+    linear-gradient(var(--g), var(--g)) 0 100%/100% 1.5px no-repeat;
+  margin: 9px 0 26px;
+  border: none;
+  max-width: 200px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  color: var(--g);
+  font-style: italic;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Logo mark — real logo artwork (assets/img/logo-original.png / logo-inverted.png).
+   "original" (navy/gold, for light backgrounds) is used in the nav; "inverted"
+   (light/gold, for the navy footer) keeps contrast where the background is dark. */
+.brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.brand.sm { gap: 12px; margin-bottom: 10px; }
+.logo-img { height: 54px; width: auto; display: block; }
+.logo-img.sm { height: 54px; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  border: none;
+  padding: 13px 26px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
+  /* transform gets its own, snappier duration — feedback on press should
+     register faster than the hover-state color/shadow changes (see the
+     :active rule below, and assets/js/year.js for why plain :active
+     reliably fires on iOS Safari too, not just desktop hover). */
+  transition: background .18s ease, opacity .18s ease, box-shadow .18s ease, transform .1s ease-out;
+}
+.btn-gold { background: var(--g); color: var(--n); box-shadow: 0 4px 12px rgba(212,175,55,.28); }
+.btn-gold:hover { background: var(--gd); color: #fff; box-shadow: 0 6px 16px rgba(212,175,55,.4); transform: translateY(-1px); }
+/* Press feedback: fires the instant a finger/pointer goes down, not on
+   release — the moment lag appears between tap and visible response, a
+   button stops feeling "grabbed." A small, fast scale-down reads as
+   physical contact; it's deliberately a different motion from the
+   hover lift above so press and hover never fight each other. */
+.btn-gold:active { transform: scale(.97); box-shadow: 0 2px 6px rgba(212,175,55,.3); }
+.btn-outline { background: transparent; color: var(--g); border: 1.5px solid var(--g); padding: 11.5px 24.5px; }
+.btn-outline:hover { background: rgba(212,175,55,.1); }
+.btn-outline:active { background: rgba(212,175,55,.18); transform: scale(.97); }
+
+/* Nav "Get in touch" CTA — the generic large .btn-gold (sized for hero/CTA
+   sections on navy) looked oversized and shadow-heavy crammed into a 70px
+   white nav bar next to plain text links. Trim it into a tighter pill that
+   reads as a nav element rather than a homepage button. */
+.nav-links .btn-gold {
+  padding: 9px 20px;
+  font-size: 11.5px;
+  letter-spacing: .05em;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(212,175,55,.22);
+}
+.nav-links .btn-gold:hover {
+  box-shadow: 0 4px 10px rgba(212,175,55,.32);
+}
+.nav-links .btn-gold:active { box-shadow: 0 1px 4px rgba(212,175,55,.3); }
+
+/* Nav — white header so the gold/navy logo mark pops instead of sitting on navy */
+.site-nav {
+  background: #fff;
+  position: sticky; top: 0; z-index: 100;
+  border-bottom: 1px solid rgba(212,175,55,.35);
+  box-shadow: 0 1px 0 rgba(10,31,68,.05);
+}
+.site-nav .w { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+.nav-links { display: flex; align-items: center; gap: 26px; }
+.nav-links a {
+  color: var(--ch);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  padding-bottom: 3px;
+  transition: color .15s ease, opacity .08s ease-out;
+}
+.nav-links a.active { color: var(--n); border-bottom: 2px solid var(--g); }
+/* A plain text link has no hover-driven color change worth noticing on a
+   tap (mobile has no hover at all), so without this a nav tap gives no
+   feedback until the next page has already loaded. A quick opacity dip
+   on press is enough to confirm the tap registered. */
+.nav-links a:active { opacity: .55; }
+.nav-toggle { display: none; }
+
+@media (max-width: 760px) {
+  .nav-links { position: fixed; inset: 70px 0 0 0; background: #fff; flex-direction: column; align-items: flex-start; padding: 24px 20px; gap: 18px; display: none; border-top: 1px solid rgba(212,175,55,.25); }
+  .nav-links.open { display: flex; }
+  .nav-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: none; border: 1px solid rgba(212,175,55,.5); color: var(--n);
+    width: 38px; height: 38px; padding: 0; border-radius: 4px; cursor: pointer;
+  }
+  .nav-toggle .icon { font-size: 19px; margin-bottom: 0; }
+  /* Two icons (hamburger / close) swap via aria-expanded, which the existing
+     onclick handler already keeps in sync — no extra JS needed. */
+  .nav-toggle-icon-close { display: none; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-icon-open { display: none; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-icon-close { display: block; }
+}
+
+/* Deep-link targets for the homepage "What we do" cards, which now link
+   straight into the matching section here (services.html#service-01 etc.)
+   — offsets the sticky nav so the section heading isn't hidden underneath it. */
+section[id^="service-"] { scroll-margin-top: 90px; }
+
+/* Page header (non-home pages). Default texture (diag2) is About's — the
+   other 3 pages that reuse this same component each get a modifier class
+   (.page-header--diag3/4/5) so their header doesn't repeat About's pattern. */
+.page-header {
+  background: var(--n);
+  background-image: var(--navy-texture-diag2);
+  padding: 56px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+.page-header--diag3 { background-image: var(--navy-texture-diag3); } /* Reviews */
+.page-header--diag4 { background-image: var(--navy-texture-diag4); } /* Services */
+.page-header--diag5 { background-image: var(--navy-texture-diag5); } /* Contact */
+.page-header .w { position: relative; z-index: 1; }
+.page-header::before {
+  content: "";
+  position: absolute; inset: 14px;
+  border: 1.5px solid rgba(212,175,55,.2);
+  pointer-events: none;
+}
+.page-header::after {
+  content: "";
+  position: absolute; top: -70px; right: -70px; width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,175,55,.09) 0%, transparent 70%);
+  pointer-events: none;
+}
+.page-header h1 { font-size: 36px; font-weight: 700; color: #fff; line-height: 1.15; letter-spacing: -.015em; max-width: 560px; }
+.page-header p { font-size: 15px; color: rgba(255,255,255,.68); line-height: 1.72; max-width: 500px; margin-top: 16px; }
+
+/* Subtle seam between stacked sections of different backgrounds — keeps flat
+   colour blocks from reading as abrupt, boxy stripes. */
+.section.bg-grey { box-shadow: inset 0 1px 0 rgba(10,31,68,.05), inset 0 -1px 0 rgba(10,31,68,.05); }
+
+/* Section title */
+.section-title { font-size: 26px; font-weight: 700; color: var(--n); }
+
+/* Card */
+.card {
+  border: 0.5px solid var(--border);
+  border-left: 3px solid var(--g);
+  padding: 26px 20px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(10,31,68,.05);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.card .icon { font-size: 22px; color: var(--g); display: block; margin-bottom: 14px; }
+.card h3 { font-size: 14.5px; font-weight: 700; color: var(--n); margin-bottom: 8px; line-height: 1.3; }
+.card p { font-size: 13px; line-height: 1.6; color: var(--ch); }
+
+/* "What we do" service cards — redesigned away from the circular icon badge
+   (a firm site-wide no, see Working notes) toward a numbered, clickable card:
+   a large faint numeral for identity, a small inline icon beside the heading
+   (no badge/circle), and a "Learn more" link that deep-links into the
+   matching section on services.html — each card is now a real link, not just
+   decoration, which is also what makes the hover state feel purposeful
+   rather than just a lift-and-shadow effect. */
+.card.service {
+  border-left: none;
+  border-top: 3px solid transparent;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 0;
+}
+.card.service::before {
+  content: "";
+  position: absolute; inset: 0 0 auto 0; height: 3px;
+  background: linear-gradient(90deg, var(--g), #f0d888, var(--g));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .3s ease;
+  z-index: 2;
+}
+.card.service:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 28px rgba(10,31,68,.14);
+  border-color: rgba(212,175,55,.4);
+}
+.card.service:hover::before { transform: scaleX(1); }
+/* Press feedback: the hover lift above never fires on a touch tap (no
+   hover state on mobile), so without this, tapping one of these cards on
+   a phone gives no visible response until the next page has loaded. A
+   quick settle-down confirms the tap landed, distinct from the hover
+   lift so the two never visually conflict. */
+.card.service:active {
+  transform: translateY(-1px) scale(.99);
+  transition: transform .1s ease-out;
+}
+/* Photo strip at the top of each service card — stock placeholders until
+   Andy's own service photos replace them (same swap as services.html). */
+.card.service .service-card-img { width: 100%; height: 190px; overflow: hidden; background: var(--lg); }
+.card.service .service-card-img img,
+.card.service .service-card-img svg { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
+.card.service:hover .service-card-img img,
+.card.service:hover .service-card-img svg { transform: scale(1.05); }
+.card.service .service-card-body { padding: 20px 20px 24px; position: relative; }
+.card.service .service-card-num {
+  position: absolute; top: 14px; right: 16px; font-size: 36px; font-weight: 800;
+  font-style: italic; color: rgba(10,31,68,.055); line-height: 1; pointer-events: none;
+  transition: color .3s ease;
+}
+.card.service:hover .service-card-num { color: rgba(212,175,55,.35); }
+.card.service .service-card-head { display: flex; align-items: center; gap: 9px; margin-bottom: 10px; position: relative; z-index: 1; }
+.card.service .service-card-head .icon {
+  font-size: 18px; color: var(--g); margin-bottom: 0; flex-shrink: 0;
+  transition: transform .3s ease;
+}
+.card.service:hover .service-card-head .icon { transform: scale(1.15); }
+.card.service .service-card-head h3 { margin-bottom: 0; }
+.card.service .service-card-more {
+  display: inline-flex; align-items: center; gap: 5px;
+  margin-top: 15px; font-size: 11.5px; font-weight: 700; letter-spacing: .03em;
+  color: var(--n); border-bottom: 1.5px solid transparent; padding-bottom: 2px;
+  transition: border-color .2s ease, color .2s ease, gap .2s ease;
+}
+.card.service:hover .service-card-more { border-color: var(--g); color: var(--gd); gap: 8px; }
+
+.card.value { border-left: none; border-top: 3px solid var(--g); padding: 30px 24px; }
+.card.value .badge {
+  width: 40px; height: 40px; border: 1.5px solid var(--g); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+}
+.card.value .badge .icon { margin-bottom: 0; font-size: 18px; }
+.card.value h3 { font-size: 15px; margin-bottom: 8px; }
+.card.value p { line-height: 1.65; }
+
+/* Condensed Gold Journey cards (About page) — reuses the homepage's
+   journey-tile photo treatment above the title/description instead of
+   a plain icon badge, so the same four Gold Journey photos appear here. */
+.card.value.has-photo { padding: 0; overflow: hidden; border-top: none; }
+.card.value.has-photo .journey-tile { height: 128px; }
+.card.value.has-photo .journey-num { font-size: 22px; top: 8px; right: 10px; }
+.card.value.has-photo .value-body { padding: 20px 22px 24px; }
+
+/* Credentials strip */
+.credentials {
+  background: linear-gradient(135deg, var(--n) 0%, #0d2450 100%);
+  padding: 18px 40px;
+  text-align: center;
+}
+.credentials p { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #fff; }
+.credentials .dot { color: var(--g); margin: 0 11px; }
+
+/* Footer */
+/* Same texture (grid-fine, originally Services' alone) on every page's
+   footer now, per Andy — the footer is the one shared component he wants
+   uniform across the site rather than distinct per page. */
+.site-footer { background: var(--n); background-image: var(--navy-texture-grid-fine); position: relative; overflow: hidden; }
+.site-footer::before {
+  content: "";
+  position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+  width: 480px; height: 320px;
+  background: radial-gradient(ellipse, rgba(212,175,55,.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.site-footer .footer-grid, .site-footer .footer-bottom { position: relative; z-index: 1; }
+.site-footer .rule { height: 2px; background: var(--g); }
+/* Footer layout note: this used to be three equal-fr grid columns, which on
+   a ~1020px content width meant the short Navigation/Contact link lists sat
+   inside columns far wider than their own content — reading as unbalanced,
+   floating islands of text with big dead gaps between them. Sizing the
+   second/third columns to their own content (max-content) instead pulls
+   them snug against the brand column, and the padding/gaps/type below are
+   all trimmed down a notch so the whole footer reads tighter and smaller,
+   not just re-aligned. */
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(200px, 1.3fr) max-content max-content;
+  gap: 52px;
+  padding-top: 38px;
+  padding-bottom: 28px;
+}
+@media (max-width: 640px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+.footer-grid a { display: block; color: rgba(255,255,255,.6); text-decoration: none; font-size: 13px; margin-bottom: 6px; }
+.footer-grid h4 { font-size: 10.5px; font-weight: 700; color: var(--g); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 11px; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.1); text-align: center; padding: 13px 40px; }
+.footer-bottom p { font-size: 11px; color: rgba(255,255,255,.32); }
+
+/* Footer phone/email — matches the simplified phone+email-only "Contact
+   details" panel on the Contact page (same clean, no-badge treatment,
+   adapted for the dark footer): a small inline icon beside the value. */
+.footer-contact-methods { display: flex; flex-direction: column; gap: 11px; margin-top: 2px; }
+.footer-contact-method { display: flex; align-items: center; gap: 10px; text-decoration: none; transition: opacity .08s ease-out; }
+.footer-contact-method .icon { font-size: 14px; color: var(--g); flex-shrink: 0; width: 18px; text-align: center; margin-bottom: 0; }
+.footer-contact-method span:not(.icon) { font-size: 13px; color: rgba(255,255,255,.75); transition: color .18s ease; }
+.footer-contact-method:hover .icon,
+.footer-contact-method:hover span:not(.icon) { color: #fff; }
+.footer-contact-method:active { opacity: .6; }
+
+/* Generic content sections used across pages */
+.section { padding: 76px 0; }
+.section.bg-white { background: #fff; }
+.section.bg-grey { background: var(--lg); }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px,1fr)); gap: 20px; }
+
+/* "What we do" homepage grid: fixed 3-per-row (was auto-fit, which produced an
+   uneven 4-then-2 split at desktop widths), stepping down to 2 then 1 column
+   as the viewport narrows. */
+.grid-services { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .grid-services { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .grid-services { grid-template-columns: 1fr; } }
+
+/* Contact page's "Send a message" / "Contact details" two-column layout.
+   Was an inline style with no responsive override (a real mobile bug —
+   squeezed both columns side by side on phones); moved to a real class
+   with the same stacking breakpoint used by .spotlight elsewhere. */
+.contact-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; }
+@media (max-width: 760px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* Simple form (Contact page) */
+.contact-form { display: grid; gap: 16px; max-width: 520px; }
+.contact-form label { font-size: 12.5px; font-weight: 700; color: var(--n); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px; display: block; }
+.contact-form input, .contact-form textarea {
+  width: 100%; border: 0.5px solid var(--border); padding: 12px 14px; font-size: 14px;
+  font-family: inherit; color: var(--ch); background: #fff; border-radius: 3px;
+}
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--g); }
+.contact-form textarea { min-height: 140px; resize: vertical; }
+
+/* Confirmation shown in place of the Contact / Leave-a-review forms after a
+   successful (or failed) submission — built by assets/js/form-submit.js.
+   Styled as an on-brand card (gold left-border + light-grey fill, same
+   pattern as the "Office hours" box) rather than a plain line of text, with
+   an icon badge and a two-line title/body layout, and a small fade-and-rise
+   entrance so it reads as a confirmation rather than a layout jump. */
+.form-result {
+  display: flex; align-items: flex-start; gap: 14px;
+  margin-top: 18px; padding: 18px 20px; border-radius: 4px;
+  background: var(--lg); border-left: 3px solid var(--g);
+  animation: formResultIn .35s ease;
+}
+.form-result-icon {
+  flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; background: var(--g); color: var(--n);
+}
+.form-result-title { font-size: 14px; font-weight: 800; color: var(--n); margin-bottom: 3px; }
+.form-result-text { font-size: 13.5px; color: var(--ch); line-height: 1.6; }
+.form-result-text a { color: var(--n); font-weight: 700; }
+.form-result--error { background: #fdecea; border-left-color: #b3261e; }
+.form-result--error .form-result-icon { background: #b3261e; color: #fff; }
+.form-result--error .form-result-title { color: #b3261e; }
+@keyframes formResultIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Leave-a-review dialog (Reviews page) */
+dialog.review-dialog {
+  border: none; border-radius: 6px; padding: 0; max-width: 520px; width: 92vw;
+  box-shadow: 0 24px 60px rgba(10,31,68,.35);
+  /* The site-wide `* { margin: 0 }` reset strips the browser's default
+     dialog:modal centering (margin: auto), which otherwise leaves the
+     popup pinned to the top-left corner instead of centered — restore
+     it explicitly here. Found during a mobile QA pass; also affects
+     desktop. */
+  margin: auto;
+  max-height: 88vh; overflow-y: auto;
+  /* Materialize rather than just appear: scale + fade together (not a
+     plain opacity fade), and shrink back along the same path on close —
+     "enter and exit along the same path" rather than appearing one way
+     and disappearing another. transform-origin defaults to center but is
+     set dynamically from the "Leave a review" button's own position by
+     the openReviewDialog() script below, so it visibly grows from (and
+     shrinks back toward) wherever the visitor actually clicked, not
+     always dead-center. `display`/`overlay` use allow-discrete so the
+     browser keeps the dialog rendered/in the top layer for the full
+     transition instead of yanking it away the instant .close() runs —
+     this is what makes the close path animate too, with no extra JS. */
+  transform-origin: center;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity .22s cubic-bezier(.16,.9,.24,1), transform .22s cubic-bezier(.16,.9,.24,1),
+              overlay .22s allow-discrete, display .22s allow-discrete;
+}
+dialog.review-dialog:not([open]) {
+  opacity: 0;
+  transform: scale(.94);
+}
+@starting-style {
+  dialog.review-dialog[open] { opacity: 0; transform: scale(.94); }
+}
+dialog.review-dialog::backdrop {
+  background: rgba(10,31,68,.55);
+  transition: background-color .22s ease, overlay .22s allow-discrete, display .22s allow-discrete;
+}
+dialog.review-dialog:not([open])::backdrop { background: rgba(10,31,68,0); }
+@starting-style {
+  dialog.review-dialog[open]::backdrop { background: rgba(10,31,68,0); }
+}
+/* Browsers that don't understand @starting-style / allow-discrete simply
+   ignore those rules and keep the dialog's old, instant-appear behavior —
+   nothing breaks, it just doesn't animate there. */
+@media (prefers-reduced-motion: reduce) {
+  dialog.review-dialog,
+  dialog.review-dialog::backdrop { transition: none; }
+}
+dialog.review-dialog .dialog-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 26px; border-bottom: 1px solid var(--border);
+}
+dialog.review-dialog .dialog-head h3 { font-size: 17px; font-weight: 700; color: var(--g); }
+dialog.review-dialog .dialog-close {
+  background: none; border: none; font-size: 22px; line-height: 1; color: var(--ch);
+  cursor: pointer; padding: 4px 8px;
+}
+dialog.review-dialog .dialog-close:hover { color: var(--n); }
+dialog.review-dialog .dialog-body { padding: 22px 26px 26px; }
+dialog.review-dialog .contact-form { max-width: none; }
+dialog.review-dialog select {
+  width: 100%; border: 0.5px solid var(--border); padding: 12px 14px; font-size: 14px;
+  font-family: inherit; color: var(--ch); background: #fff; border-radius: 3px;
+}
+dialog.review-dialog select:focus { outline: none; border-color: var(--g); }
+
+.info-list { list-style: none; }
+.info-list li { display: flex; gap: 12px; margin-bottom: 18px; font-size: 14px; color: var(--ch); }
+.info-list .icon { color: var(--g); font-size: 18px; flex-shrink: 0; }
+
+/* Simplified contact methods (Contact page) — just phone + email, presented
+   as a clean, minimal list: a small inline icon (no circular badge), an
+   uppercase label, and a bold value, each row divided by a thin hairline.
+   Deliberately understated/corporate rather than app-style icon buttons. */
+.contact-methods { border-top: 1px solid var(--border); }
+.contact-method {
+  display: flex; align-items: center; gap: 16px;
+  padding: 18px 2px; border-bottom: 1px solid var(--border);
+  text-decoration: none; color: inherit;
+  transition: opacity .08s ease-out;
+}
+.contact-method:active { opacity: .6; }
+.contact-method .icon { font-size: 17px; color: var(--g); flex-shrink: 0; width: 20px; text-align: center; margin-bottom: 0; }
+.contact-method-label {
+  display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--ch); margin-bottom: 4px;
+}
+.contact-method-value { display: block; font-size: 16px; font-weight: 700; color: var(--n); transition: color .18s ease; }
+.contact-method:hover .contact-method-value { color: var(--gd); }
+.contact-method:hover .icon { color: var(--gd); }
+
+/* =========================================================
+   Gold Journey photo tiles (homepage + About page) — a unified
+   navy/gold colour grade so four unrelated stock-style photos read
+   as one art-directed set rather than four random images.
+
+   Interactive on hover/focus/tap: the desaturated "raw" colour grade
+   clears toward the photo's true colour and the tile scales up
+   slightly — a small, on-brand echo of "refining reveals true value"
+   rather than a purely static image. Reachable by keyboard (tabindex
+   + Enter/Space) and by tap on touch devices (the is-open class,
+   toggled by the inline onclick/onkeydown on each tile).
+   ========================================================= */
+.journey-tile {
+  height: 200px; position: relative; overflow: hidden; background: #0d1f38;
+  cursor: pointer; outline: none;
+}
+.journey-tile:focus-visible { box-shadow: inset 0 0 0 2px var(--g); }
+.journey-img {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(1.2) sepia(.22) hue-rotate(-8deg) contrast(1.1) brightness(.92);
+  opacity: .8;
+  transition: filter .5s ease, opacity .5s ease, transform .6s ease;
+}
+.journey-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(155deg, rgba(10,31,68,.25) 0%, rgba(10,31,68,.88) 100%);
+  transition: opacity .5s ease;
+}
+.journey-tint {
+  position: absolute; inset: 0; background: rgba(212,175,55,.1); mix-blend-mode: overlay;
+  transition: opacity .5s ease;
+}
+.journey-num {
+  position: absolute; top: 12px; right: 14px; font-size: 28px; font-weight: 800;
+  color: rgba(212,175,55,.3); font-style: italic; line-height: 1;
+  transition: color .5s ease, transform .5s ease;
+}
+.journey-tile:hover .journey-img,
+.journey-tile:focus .journey-img,
+.journey-tile.is-open .journey-img {
+  filter: saturate(1.05) sepia(.02) hue-rotate(0deg) contrast(1.02) brightness(1.02);
+  opacity: 1;
+  transform: scale(1.06);
+}
+.journey-tile:hover .journey-overlay,
+.journey-tile:focus .journey-overlay,
+.journey-tile.is-open .journey-overlay { opacity: .4; }
+.journey-tile:hover .journey-tint,
+.journey-tile:focus .journey-tint,
+.journey-tile.is-open .journey-tint { opacity: .35; }
+.journey-tile:hover .journey-num,
+.journey-tile:focus .journey-num,
+.journey-tile.is-open .journey-num {
+  color: rgba(212,175,55,.85);
+  transform: scale(1.1);
+}
+
+/* Journey layout — a flex row (instead of a plain grid) so each step can
+   be lifted a little higher than the last, an ascending staircase that
+   reads as forward progress rather than four equal, disconnected cards.
+   Each step is also explicitly labelled "Step 0X of 04".
+
+   Motion: on top of the static staircase offset, each step now animates
+   INTO place — fading and sliding up, staggered step-by-step — the first
+   time (and every time) the section scrolls into view, via the
+   `.journey-row.in-view` class toggled by IntersectionObserver below.
+   Gold connector chevrons between steps 1→2→3→4 give the row an explicit
+   "forward" direction and carry a gentle idle nudge once revealed, so the
+   section keeps a small amount of continuous movement rather than sitting
+   perfectly still. */
+.journey-row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 34px; position: relative; }
+.journey-step-wrap {
+  flex: 1 1 210px; min-width: 210px; position: relative;
+  --stair: 0px; --enter: 0px;
+  opacity: 1;
+  transform: translateY(var(--stair));
+}
+/* Entrance animation is opt-in, not the default: the script below only adds
+   .js-anim once it has confirmed it can actually reveal the steps again via
+   IntersectionObserver. Without that class (JS blocked/disabled, or simply
+   never ran) a step keeps the plain, always-visible rule above instead of
+   being stuck at opacity:0 forever — a no-JS pass, most non-Google
+   crawlers, and printing/saving the page as a PDF all render the full
+   staircase now instead of a blank gap. */
+.journey-row.js-anim .journey-step-wrap {
+  --enter: 30px;
+  opacity: 0;
+  transform: translateY(calc(var(--stair) + var(--enter)));
+  transition: transform .8s cubic-bezier(.16,.9,.24,1), opacity .8s ease;
+  transition-delay: var(--enter-delay, 0s);
+}
+.journey-row.js-anim.in-view .journey-step-wrap { opacity: 1; --enter: 0px; }
+/* Printing/saving a page as PDF renders it in whatever scroll-animation
+   state it happens to be in at that moment — if a step hasn't scrolled
+   into view yet in a JS-enabled browser, it would otherwise print at
+   opacity:0 despite the no-JS fallback above. Force it visible for print
+   specifically, regardless of scroll/JS state. */
+@media print {
+  .journey-step-wrap { opacity: 1 !important; transform: translateY(var(--stair)) !important; transition: none !important; }
+}
+.journey-step-wrap.step-1 { --enter-delay: 0s; }
+.journey-step-wrap.step-2 { --enter-delay: .13s; }
+.journey-step-wrap.step-3 { --enter-delay: .26s; }
+.journey-step-wrap.step-4 { --enter-delay: .39s; }
+@media (min-width: 761px) {
+  .journey-step-wrap.step-2 { --stair: -16px; }
+  .journey-step-wrap.step-3 { --stair: -32px; }
+  .journey-step-wrap.step-4 { --stair: -48px; }
+}
+/* The staircase only reads correctly when all 4 card bodies are the same
+   height — otherwise the fixed-height photo above each card ends up at an
+   uneven set of heights, because align-items:flex-end aligns the WRAP
+   bottoms evenly but a taller/shorter card pushes its own photo up/down
+   relative to the others. A min-height (generous enough for the longest
+   subtitle to wrap to 2 lines and the longest description to wrap to 5)
+   keeps all 4 cards level regardless of how each step's copy wraps. Scoped
+   to the same breakpoint as the staircase itself — below it the cards stack
+   in a single column with no staircase to keep level, so forcing this
+   height there would just leave dead space under the shorter cards. */
+@media (min-width: 761px) {
+  .journey-card { min-height: 232px; }
+}
+
+/* Connector chevrons — one between each pair of steps, angled to match the
+   ascending staircase direction. Hidden below the staircase breakpoint
+   (mobile stacks the steps, where a diagonal connector reads oddly). */
+.journey-connector {
+  display: none;
+  position: absolute; top: 100px; right: -30px;
+  width: 24px; height: 24px; align-items: center; justify-content: center;
+  color: rgba(212,175,55,.65); font-size: 19px;
+  transform: rotate(-20deg);
+  pointer-events: none; z-index: 2;
+}
+@media (min-width: 761px) {
+  .journey-connector { display: flex; }
+}
+.journey-row.in-view .journey-connector { animation: journeyConnectorNudge 2.6s ease-in-out infinite; }
+@keyframes journeyConnectorNudge {
+  0%, 100% { transform: rotate(-20deg) translate(0,0); }
+  50% { transform: rotate(-20deg) translate(5px,-4px); }
+}
+
+/* Pull-quote band — a full-bleed navy statement section used to break up
+   repeated white/grey card-grid rhythm on the homepage. */
+.pullquote {
+  background: var(--n);
+  background-image: var(--navy-texture-grid);
+  padding: 72px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.pullquote::before {
+  content: "\201C";
+  position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+  font-size: 220px; font-family: Georgia, "Times New Roman", serif; color: rgba(212,175,55,.08);
+  line-height: 1; pointer-events: none;
+}
+.pullquote .w { position: relative; z-index: 1; }
+.pullquote blockquote {
+  font-size: 26px; font-style: italic; color: #fff; font-weight: 600;
+  max-width: 640px; margin: 0 auto 16px; line-height: 1.45;
+}
+.pullquote blockquote em { color: var(--g); font-style: italic; }
+/* "The Golden Standard" — the site's tagline, made prominent: bold gold
+   gradient text (a faint diagonal "brushed" texture inside the gradient
+   itself) with a shimmer sweep that re-plays each time it scrolls into
+   view (see the .shine class toggled by IntersectionObserver on the
+   homepage, just below the pull-quote markup). */
+.pullquote cite {
+  font-style: normal; font-weight: 800; font-size: 15px; letter-spacing: .16em; text-transform: uppercase;
+  display: inline-block;
+  background-image:
+    repeating-linear-gradient(115deg, rgba(10,31,68,.12) 0, rgba(10,31,68,.12) 1px, transparent 1px, transparent 5px),
+    linear-gradient(100deg, var(--gd) 0%, var(--g) 32%, #fdeeb3 48%, var(--g) 64%, var(--gd) 100%);
+  background-size: auto, 220% 100%;
+  background-position: 0 0, 0% 0%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.pullquote cite.shine { animation: goldShineSweep 2.4s ease forwards; }
+@keyframes goldShineSweep {
+  0% { background-position: 0 0, 135% 0%; }
+  100% { background-position: 0 0, -35% 0%; }
+}
+
+/* Numbered service blocks (services.html) — a large faint numeral gives each
+   block a distinct identity instead of five identical icon+text rows, and
+   echoes the 01–04 numerals already used in the homepage Gold Journey. */
+.service-block { position: relative; }
+.service-block .service-num {
+  position: absolute; top: -6px; right: 0; font-size: 64px; font-weight: 800;
+  font-style: italic; color: rgba(10,31,68,.05); line-height: 1; pointer-events: none;
+  z-index: 0;
+}
+.section.bg-grey .service-block .service-num { color: rgba(10,31,68,.07); }
+.service-block > .w { position: relative; z-index: 1; }
+
+/* Values as a horizontal numbered list (about.html) — deliberately different
+   from the homepage's card-grid values section so the two pages don't feel
+   like the same template reused. */
+.value-row {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 22px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.value-row:first-of-type { padding-top: 0; }
+.value-row:last-of-type { border-bottom: none; }
+.value-row .value-num {
+  font-size: 32px; font-weight: 800; font-style: italic; color: var(--g);
+  line-height: 1;
+}
+.value-row h3 { font-size: 16px; font-weight: 700; color: var(--n); margin-bottom: 6px; }
+.value-row p { font-size: 14px; line-height: 1.65; color: var(--ch); max-width: 620px; }
+
+@media (max-width: 560px) {
+  .value-row { grid-template-columns: 40px 1fr; }
+  .value-row .value-num { font-size: 24px; }
+}
+
+/* =========================================================
+   Testimonial cards (homepage teaser + reviews.html) — reuses the
+   base .card look with a large decorative quotation mark and a
+   star row so reviews read distinctly from the service/value cards.
+   ========================================================= */
+.card.testimonial {
+  border-left: none;
+  border-top: 3px solid var(--g);
+  position: relative;
+  padding-top: 34px;
+}
+.card.testimonial::before {
+  content: "\201C";
+  position: absolute; top: 6px; left: 20px;
+  font-size: 46px; font-family: Georgia, "Times New Roman", serif;
+  color: rgba(212,175,55,.35); line-height: 1; pointer-events: none;
+}
+/* Gold Karat rating — a real photographed, engraved gold plate per review
+   (one per common karat tier: 9/14/18/22/24K), replacing the earlier
+   CSS-drawn plate. The image itself (assets/img/karat-plate-XX.png) shows
+   the purity: higher karat = brighter, more saturated gold + more stars. */
+.card.testimonial .karat-plate {
+  display: block; width: 84px; height: auto; margin: 0 auto 16px;
+  filter: drop-shadow(0 6px 12px rgba(10,31,68,.28));
+}
+.card.testimonial p.quote { font-size: 13.5px; line-height: 1.7; color: var(--ch); font-style: italic; margin-bottom: 16px; }
+.card.testimonial .attribution { font-size: 12.5px; font-weight: 700; color: var(--n); }
+.card.testimonial .attribution span { display: block; font-size: 11.5px; font-weight: 400; font-style: italic; color: var(--g); margin-top: 2px; }
+
+/* =========================================================
+   Client Assay Report (reviews.html) — a filter + ratings-summary
+   panel sitting above the testimonial grid. The total count, each
+   tier's bar length/count, and the rating filter itself are all
+   driven by assets/js/reviews-filter.js reading each review card's
+   data-tier attribute — add, remove or re-rate a card and this
+   panel updates on its own, nothing here needs hand-editing.
+   The numbers/bar widths below are a static fallback only (shown
+   if JS doesn't run) and should roughly match the real cards.
+   ========================================================= */
+.assay {
+  background: var(--n);
+  background-image: var(--navy-texture-dots);
+  background-size: 20px 20px;
+  padding: 30px clamp(18px, 4vw, 34px);
+  border-radius: 6px;
+  border: 1px solid rgba(212,175,55,.4);
+  color: #fff;
+  margin-bottom: 32px;
+}
+.assay-top { display: flex; gap: 36px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 22px; }
+.assay-total { flex: none; }
+.assay-total strong { display: block; font-size: 44px; font-weight: 800; color: var(--g); line-height: 1; }
+.assay-total span { font-size: 10.5px; color: rgba(255,255,255,.55); text-transform: uppercase; letter-spacing: .05em; display: block; margin-top: 6px; max-width: 90px; }
+.assay-bars { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 9px; }
+.assay-bar {
+  display: grid; grid-template-columns: 32px 1fr 16px; gap: 10px; align-items: center;
+  background: none; border: none; cursor: pointer; padding: 2px 0; width: 100%; font: inherit;
+}
+.assay-bar-label { font-size: 11px; font-weight: 700; color: var(--g); text-align: left; }
+.assay-bar-track { background: rgba(255,255,255,.12); border-radius: 4px; overflow: hidden; height: 7px; }
+.assay-bar-track i { display: block; height: 7px; border-radius: 4px; background: linear-gradient(90deg, var(--gd), var(--g)); width: var(--w); }
+.assay-bar-count { font-size: 11px; color: rgba(255,255,255,.6); text-align: right; }
+.assay-bar[data-active="true"] .assay-bar-label { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Bar-fill entrance animation — same opt-in pattern as the Gold Journey
+   staircase above: the script only adds .js-anim once it has confirmed it
+   can actually reveal the bars again via IntersectionObserver, and only
+   then are they held at width:0 waiting for .in-view. Without that class
+   (JS blocked/disabled, or simply never ran) a bar keeps the plain,
+   always-correct width: var(--w) rule above instead of being stuck at
+   zero forever — same reasoning as the Journey fix (see "Known
+   placeholders"/git history): a no-JS pass, most non-Google crawlers, and
+   printing/saving the page as a PDF all show the real distribution. */
+.assay-bars.js-anim .assay-bar-track i { width: 0; }
+.assay-bars.js-anim.in-view .assay-bar-track i {
+  width: var(--w);
+  transition: width 2.4s cubic-bezier(.16,.9,.24,1);
+  transition-delay: var(--bar-delay, 0s);
+}
+.assay-bar:nth-child(1) .assay-bar-track i { --bar-delay: 0s; }
+.assay-bar:nth-child(2) .assay-bar-track i { --bar-delay: .27s; }
+.assay-bar:nth-child(3) .assay-bar-track i { --bar-delay: .54s; }
+.assay-bar:nth-child(4) .assay-bar-track i { --bar-delay: .81s; }
+.assay-bar:nth-child(5) .assay-bar-track i { --bar-delay: 1.08s; }
+@media print {
+  .assay-bar-track i { width: var(--w) !important; transition: none !important; }
+}
+/* Reduced motion is now handled in assets/js/reviews-filter.js, by never
+   adding .js-anim in the first place when prefers-reduced-motion is set
+   (so the bars simply stay at their correct final width, no animation to
+   disable). A CSS override used to live here instead
+   (.assay-bars.js-anim .assay-bar-track i { transition: none }), but it
+   never actually worked: the .in-view variant of that same selector has
+   one more class and is more specific, so it always won the cascade and
+   the bars kept animating under reduced motion regardless of this rule.
+   Left as a note rather than silently removed, in case this file is ever
+   copied as a reference for the same pattern elsewhere. */
+
+/* Filter pills — shared look, used both on the dark assay panel and
+   (if ever reused elsewhere) on a light background. */
+.pillrow { display: flex; gap: 8px; flex-wrap: wrap; }
+.pill {
+  font: inherit; font-size: 11.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  padding: 7px 15px; border-radius: 999px; border: 1.5px solid var(--g); background: transparent;
+  color: var(--n); cursor: pointer; transition: .15s;
+}
+.pill:hover { background: rgba(212,175,55,.12); }
+.pill[aria-pressed="true"] { background: var(--g); color: var(--n); }
+.pillrow--dark .pill { border-color: var(--g); color: #fff; }
+.pillrow--dark .pill[aria-pressed="true"] { background: var(--g); color: var(--n); }
+
+.filter-status { font-size: 12.5px; color: var(--ch); margin: -10px 0 22px; }
+.filter-status button {
+  font: inherit; font-size: 12.5px; font-weight: 700; color: var(--gd); background: none; border: none;
+  cursor: pointer; text-decoration: underline; padding: 0; margin-left: 4px;
+}
+
+/* =========================================================
+   Service photos (services.html) — a colour-graded banner above
+   each service block, matching the homepage Gold Journey tiles'
+   navy/gold treatment so photography reads as one consistent system
+   across the site rather than a per-page style.
+   ========================================================= */
+.service-block .service-photo {
+  position: relative; overflow: hidden; border-radius: 4px;
+  height: 280px; max-width: 760px; margin-bottom: 22px;
+  box-shadow: 0 8px 22px rgba(10,31,68,.1);
+}
+.service-block .service-photo img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(1.1) sepia(.12) hue-rotate(-6deg) contrast(1.05) brightness(.95);
+}
+.service-block .service-photo::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(155deg, rgba(10,31,68,.08) 0%, rgba(10,31,68,.5) 100%);
+}
+
+/* Homepage service spotlight — a large two-column feature (photo +
+   copy) used to give one specific service ("hero" treatment) far
+   more visual weight than the small grid cards in "What we do". */
+.spotlight { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
+.spotlight-media {
+  position: relative; overflow: hidden; border-radius: 6px; height: 320px;
+  box-shadow: 0 14px 34px rgba(10,31,68,.16);
+}
+.spotlight-media img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(1.1) sepia(.12) hue-rotate(-6deg) contrast(1.05) brightness(.95);
+}
+.spotlight-media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(155deg, rgba(10,31,68,.05) 0%, rgba(10,31,68,.4) 100%);
+}
+.spotlight-content ul.info-list { margin-top: 16px; margin-bottom: 24px; }
+@media (max-width: 760px) {
+  .spotlight { grid-template-columns: 1fr; }
+  .spotlight-media { height: 220px; }
+}

@@ -1,131 +1,187 @@
-<h2 class="sr-only">AU Accounting Services — updated homepage mockup with gold journey, company values, and gold imagery</h2>
-<style>
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--g:#D4AF37;--n:#0A1F44;--lg:#E5E5E5;--ch:#4B4B4B;--gd:#8B6914}
-body{font-family:var(--font-sans,system-ui,sans-serif);color:var(--text-primary,var(--ch));line-height:1.65;background:#fff}
-.w{max-width:1100px;margin:0 auto;padding:0 40px}
-.r{display:block;height:5px;background:linear-gradient(var(--g),var(--g)) 0 0/100% 2.5px no-repeat,linear-gradient(var(--g),var(--g)) 0 100%/100% 1.5px no-repeat;margin:9px 0 26px;border:none}
-.tile{width:56px;height:56px;border:2px solid var(--g);color:var(--g);position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.t79{position:absolute;top:4px;left:5px;font-size:11px;font-weight:700;line-height:1}
-.tau{font-size:25px;font-weight:800;font-style:italic;margin-top:5px}
-.twt{position:absolute;bottom:4px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:500;white-space:nowrap}
-.wm-n{font-size:13px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;white-space:nowrap;color:#fff}
-.wm-r{height:1.5px;background:var(--g);margin:3px 0}
-.wm-t{font-size:10.5px;color:var(--g);font-style:italic;letter-spacing:.04em}
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AU Accounting Services | Financial Excellence, Refined</title>
+<meta name="description" content="AU Accounting Services (AU Services (Pty) Ltd) — professional accounting, tax, payroll, business advisory, and body corporate & HOA services for South African businesses. The Golden Standard.">
+<!-- Open Graph / Twitter Card — NOTE for Andy: og:url and og:image use the
+     same placeholder domain as the structured data above; update once the
+     real live domain is confirmed. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AU Accounting Services">
+<meta property="og:title" content="AU Accounting Services | Financial Excellence, Refined">
+<meta property="og:description" content="AU Accounting Services (AU Services (Pty) Ltd) — professional accounting, tax, payroll, business advisory, and body corporate & HOA services for South African businesses. The Golden Standard.">
+<meta property="og:url" content="https://www.auservices.co.za/">
+<meta property="og:image" content="https://www.auservices.co.za/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AU Accounting Services | Financial Excellence, Refined">
+<meta name="twitter:description" content="AU Accounting Services (AU Services (Pty) Ltd) — professional accounting, tax, payroll, business advisory, and body corporate & HOA services for South African businesses. The Golden Standard.">
+<meta name="twitter:image" content="https://www.auservices.co.za/assets/img/og-image.jpg">
+<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/iconfont/tabler-icons.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<!-- Structured data for local search (Google, etc.) — NOTE for Andy: 'url' and
+     'image' below use a placeholder domain (www.auservices.co.za, matching your
+     email domain) since the site is not deployed yet. Update both once the real
+     live domain is confirmed. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AccountingService",
+  "name": "AU Accounting Services",
+  "alternateName": "AU Services (Pty) Ltd",
+  "image": "https://www.auservices.co.za/assets/img/logo-original.png",
+  "url": "https://www.auservices.co.za/",
+  "telephone": "+27763560662",
+  "email": "info@auservices.co.za",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "25 Kgaka Street, Van der Hoff Park",
+    "addressLocality": "Potchefstroom",
+    "addressRegion": "North West",
+    "postalCode": "2531",
+    "addressCountry": "ZA"
+  },
+  "areaServed": "South Africa",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "08:00",
+    "closes": "17:00"
+  }
+}
+</script>
+</head>
+<body>
 
 <!-- NAV -->
-<nav style="background:var(--n);position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(212,175,55,.18)">
-  <div class="w" style="display:flex;align-items:center;justify-content:space-between;height:70px">
-    <div style="display:flex;align-items:center;gap:14px">
-      <div class="tile" aria-label="AU element tile" role="img"><span class="t79">79</span><span class="tau">Au</span><span class="twt">196.97</span></div>
-      <div><div class="wm-n">Accounting Services</div><div class="wm-r"></div><div class="wm-t">The Golden Standard</div></div>
-    </div>
-    <div style="display:flex;align-items:center;gap:26px">
-      <a href="#" style="color:#fff;text-decoration:none;font-size:13.5px;font-weight:500;padding-bottom:3px;border-bottom:2px solid var(--g)">Home</a>
-      <a href="#" style="color:rgba(255,255,255,.72);text-decoration:none;font-size:13.5px;font-weight:500">Services</a>
-      <a href="#" style="color:rgba(255,255,255,.72);text-decoration:none;font-size:13.5px;font-weight:500">About</a>
-      <a href="#" style="color:rgba(255,255,255,.72);text-decoration:none;font-size:13.5px;font-weight:500">Contact</a>
-      <button style="background:var(--g);color:var(--n);border:none;padding:9px 18px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-radius:4px;margin-left:4px">Get in touch</button>
+<nav class="site-nav">
+  <div class="w">
+    <a href="index.html" class="brand">
+      <img src="assets/img/logo-original.png" alt="AU Accounting Services — The Golden Standard" class="logo-img">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu" onclick="var n=document.getElementById('nav-links');var open=n.classList.toggle('open');this.setAttribute('aria-expanded',open);">
+      <i class="ti ti-menu-2 icon nav-toggle-icon-open" aria-hidden="true"></i>
+      <i class="ti ti-x icon nav-toggle-icon-close" aria-hidden="true"></i>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn btn-gold" style="margin-left:4px">Get in touch</a>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
-<section style="background:var(--n);padding:86px 0 92px;position:relative;overflow:hidden">
+<!-- Sizing note: per Andy, this stays text-only (no added photo/card/graphic
+     element to the right) — the fix is to have the copy itself claim more of
+     the section: a larger heading with a wider max-width so it wraps closer
+     to the container edge, a wider/larger paragraph, and bigger buttons.
+     (The credentials line that used to sit under the buttons was removed
+     per Andy's request. Professional Accountant (SA) / Registered Tax
+     Practitioner now appears ONLY on the About page practitioner bio —
+     not here, not in the footer, not anywhere else on the site.) -->
+<section class="navy-texture hero" style="background-color:var(--n);padding:112px 0 116px;position:relative;overflow:hidden">
   <div aria-hidden="true" style="position:absolute;inset:14px;border:1.5px solid rgba(212,175,55,.2);pointer-events:none"></div>
-  <div aria-hidden="true" style="position:absolute;top:-60px;right:-60px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.06) 0%,transparent 70%)"></div>
+  <div aria-hidden="true" style="position:absolute;top:-90px;right:-90px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.07) 0%,transparent 70%)"></div>
   <div class="w" style="position:relative;z-index:1">
-    <h1 style="font-size:44px;font-weight:700;color:#fff;line-height:1.1;letter-spacing:-.015em;max-width:540px;margin-bottom:18px">Financial excellence,<br><em style="color:var(--g)">refined.</em></h1>
-    <div class="r" style="max-width:200px"></div>
-    <p style="font-size:16px;color:rgba(255,255,255,.68);line-height:1.72;max-width:500px;margin-bottom:36px">Just as gold is refined to reveal its true value, we refine your financial systems to bring clarity, precision, and lasting strength to your business.</p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap">
-      <button style="background:var(--g);color:var(--n);border:none;padding:13px 26px;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-radius:4px">Our services</button>
-      <button style="background:transparent;color:var(--g);border:1.5px solid var(--g);padding:12px 26px;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-radius:4px">Get in touch</button>
+    <h1 style="font-size:72px;font-weight:700;color:#fff;line-height:1.06;letter-spacing:-.02em;max-width:900px;margin-bottom:26px">Financial excellence,<br><em style="color:var(--g);font-style:italic">refined.</em></h1>
+    <span class="r" style="max-width:280px"></span>
+    <p style="font-size:20px;color:rgba(255,255,255,.7);line-height:1.75;max-width:780px;margin-bottom:44px">Just as gold is refined to reveal its true value, we refine your financial systems to bring clarity, precision, and lasting strength to your business.</p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px">
+      <a href="services.html" class="btn btn-gold" style="padding:17px 34px;font-size:13.5px">Our services</a>
+      <a href="contact.html" class="btn btn-outline" style="padding:15.5px 32.5px;font-size:13.5px">Get in touch</a>
     </div>
   </div>
 </section>
 
 <!-- GOLD JOURNEY -->
-<section style="background:var(--n);padding:0 0 80px;position:relative">
+<!-- Interactivity note: each .journey-tile is hover/focus/tap-interactive —
+     the desaturated colour grade clears toward the photo's true colour and
+     the tile scales up slightly (see .journey-tile rules in style.css). The
+     onclick/onkeydown pair makes that work on touch and via keyboard, not
+     just mouse hover. No icon badge is overlaid on the photos any more. -->
+<section class="navy-texture-dots section-seam-top" style="background-color:var(--n);padding:0 0 80px;position:relative">
   <div class="w">
-    <div style="border-top:1px solid rgba(212,175,55,.2);padding-top:56px;margin-bottom:40px">
-      <p style="font-size:12px;color:var(--g);font-style:italic;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px">The gold standard journey</p>
+    <div style="padding-top:56px;margin-bottom:80px">
+      <span class="eyebrow">The golden standard journey</span>
       <h2 style="font-size:26px;font-weight:700;color:#fff;max-width:540px">Every client engagement follows the same path that transforms raw potential into lasting value.</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:2px">
+    <div class="journey-row">
 
       <!-- DISCOVER -->
-      <div>
-        <div style="height:200px;position:relative;overflow:hidden;background:#0d1f38">
-          <img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?w=500&q=80&fit=crop&auto=format" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:.7" onerror="this.remove()" alt="" loading="lazy">
-          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,31,68,.1) 0%,rgba(10,31,68,.75) 100%)"></div>
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
-            <div style="width:54px;height:54px;border:1.5px solid var(--g);border-radius:50%;display:flex;align-items:center;justify-content:center">
-              <i class="ti ti-search" style="font-size:22px;color:var(--g)" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div style="position:absolute;top:12px;right:14px;font-size:28px;font-weight:800;color:rgba(212,175,55,.25);font-style:italic;line-height:1">01</div>
+      <div class="journey-step-wrap step-1">
+        <div class="journey-tile" tabindex="0" role="button" aria-label="Discover — reveal photo" onclick="this.classList.toggle('is-open')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('is-open')}">
+          <img class="journey-img" src="assets/img/journey-01-discover.jpg" onerror="this.remove()" alt="Magnifying glass examining gold ore over financial documents" loading="lazy">
+          <div class="journey-overlay"></div>
+          <div class="journey-tint"></div>
+          <div class="journey-num">01</div>
         </div>
-        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(212,175,55,.2);border-top:3px solid var(--g);padding:22px 20px">
+        <div class="journey-card" style="background:rgba(255,255,255,.04);border:1px solid rgba(212,175,55,.2);border-top:3px solid var(--g);padding:22px 20px">
           <h3 style="font-size:15px;font-weight:700;color:#fff;margin-bottom:5px">Discover</h3>
           <p style="font-size:11px;color:var(--g);font-style:italic;margin-bottom:10px;letter-spacing:.04em">Understand your business</p>
-          <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.6">Like prospecting for gold, we begin by knowing where to look — understanding your structure, challenges, and goals.</p>
+          <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.6">Like prospecting for gold, we begin by understanding your structure, challenges, and goals.</p>
         </div>
+        <div class="journey-connector" aria-hidden="true"><i class="ti ti-arrow-narrow-right icon" style="margin-bottom:0"></i></div>
       </div>
 
       <!-- REFINE -->
-      <div>
-        <div style="height:200px;position:relative;overflow:hidden;background:#1a1000">
-          <img src="https://images.unsplash.com/photo-1569172122301-bc5008bc09c5?w=500&q=80&fit=crop&auto=format" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:.65" onerror="this.remove()" alt="" loading="lazy">
-          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(90,50,0,.2) 0%,rgba(10,31,68,.8) 100%)"></div>
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
-            <div style="width:54px;height:54px;border:1.5px solid var(--g);border-radius:50%;display:flex;align-items:center;justify-content:center">
-              <i class="ti ti-flame" style="font-size:22px;color:var(--g)" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div style="position:absolute;top:12px;right:14px;font-size:28px;font-weight:800;color:rgba(212,175,55,.25);font-style:italic;line-height:1">02</div>
+      <div class="journey-step-wrap step-2">
+        <div class="journey-tile" tabindex="0" role="button" aria-label="Refine — reveal photo" onclick="this.classList.toggle('is-open')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('is-open')}">
+          <img class="journey-img" src="assets/img/journey-02-refine.jpg" onerror="this.remove()" alt="Molten gold being poured from a furnace crucible into a mould" loading="lazy">
+          <div class="journey-overlay"></div>
+          <div class="journey-tint"></div>
+          <div class="journey-num">02</div>
         </div>
-        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(212,175,55,.2);border-top:3px solid var(--g);padding:22px 20px">
+        <div class="journey-card" style="background:rgba(255,255,255,.04);border:1px solid rgba(212,175,55,.2);border-top:3px solid var(--g);padding:22px 20px">
           <h3 style="font-size:15px;font-weight:700;color:#fff;margin-bottom:5px">Refine</h3>
           <p style="font-size:11px;color:var(--g);font-style:italic;margin-bottom:10px;letter-spacing:.04em">Perfecting financial systems</p>
-          <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.6">We apply precision and process to improve your reporting and compliance — removing the impurities that hold businesses back.</p>
+          <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.6">We apply precision and process to improve your reporting and compliance, removing the impurities that hold businesses back.</p>
         </div>
+        <div class="journey-connector" aria-hidden="true"><i class="ti ti-arrow-narrow-right icon" style="margin-bottom:0"></i></div>
       </div>
 
       <!-- ILLUMINATE -->
-      <div>
-        <div style="height:200px;position:relative;overflow:hidden;background:#1a1500">
-          <img src="https://images.unsplash.com/photo-1618022325802-7e5e732d97a1?w=500&q=80&fit=crop&auto=format" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:.7" onerror="this.remove()" alt="" loading="lazy">
-          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(212,175,55,.05) 0%,rgba(10,31,68,.8) 100%)"></div>
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
-            <div style="width:54px;height:54px;border:1.5px solid var(--g);border-radius:50%;display:flex;align-items:center;justify-content:center">
-              <i class="ti ti-sparkles" style="font-size:22px;color:var(--g)" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div style="position:absolute;top:12px;right:14px;font-size:28px;font-weight:800;color:rgba(212,175,55,.25);font-style:italic;line-height:1">03</div>
+      <div class="journey-step-wrap step-3">
+        <div class="journey-tile" tabindex="0" role="button" aria-label="Illuminate — reveal photo" onclick="this.classList.toggle('is-open')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('is-open')}">
+          <img class="journey-img" src="assets/img/journey-03-illuminate.jpg" onerror="this.remove()" alt="Gold bar being polished under a desk lamp" loading="lazy">
+          <div class="journey-overlay"></div>
+          <div class="journey-tint"></div>
+          <div class="journey-num">03</div>
         </div>
-        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(212,175,55,.2);border-top:3px solid var(--g);padding:22px 20px">
+        <div class="journey-card" style="background:rgba(255,255,255,.04);border:1px solid rgba(212,175,55,.2);border-top:3px solid var(--g);padding:22px 20px">
           <h3 style="font-size:15px;font-weight:700;color:#fff;margin-bottom:5px">Illuminate</h3>
           <p style="font-size:11px;color:var(--g);font-style:italic;margin-bottom:10px;letter-spacing:.04em">Clarity through financial reporting</p>
-          <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.6">Accurate financial statements and insightful reports that bring your true position into focus — like gold catching light.</p>
+          <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.6">Accurate financial statements and insightful reports bring your true position into focus, like gold catching light.</p>
         </div>
+        <div class="journey-connector" aria-hidden="true"><i class="ti ti-arrow-narrow-right icon" style="margin-bottom:0"></i></div>
       </div>
 
       <!-- PROSPER -->
-      <div>
-        <div style="height:200px;position:relative;overflow:hidden;background:#0d1a10">
-          <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?w=500&q=80&fit=crop&auto=format" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:.7" onerror="this.remove()" alt="" loading="lazy">
-          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,31,68,.1) 0%,rgba(10,31,68,.75) 100%)"></div>
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
-            <div style="width:54px;height:54px;border:1.5px solid var(--g);border-radius:50%;display:flex;align-items:center;justify-content:center">
-              <i class="ti ti-trending-up" style="font-size:22px;color:var(--g)" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div style="position:absolute;top:12px;right:14px;font-size:28px;font-weight:800;color:rgba(212,175,55,.25);font-style:italic;line-height:1">04</div>
+      <div class="journey-step-wrap step-4">
+        <div class="journey-tile" tabindex="0" role="button" aria-label="Prosper — reveal photo" onclick="this.classList.toggle('is-open')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('is-open')}">
+          <img class="journey-img" src="assets/img/journey-04-prosper.jpg" onerror="this.remove()" alt="Open bank vault lined with stacked gold bars" loading="lazy">
+          <div class="journey-overlay"></div>
+          <div class="journey-tint"></div>
+          <div class="journey-num">04</div>
         </div>
-        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(212,175,55,.2);border-top:3px solid var(--g);padding:22px 20px">
+        <div class="journey-card" style="background:rgba(255,255,255,.04);border:1px solid rgba(212,175,55,.2);border-top:3px solid var(--g);padding:22px 20px">
           <h3 style="font-size:15px;font-weight:700;color:#fff;margin-bottom:5px">Prosper</h3>
           <p style="font-size:11px;color:var(--g);font-style:italic;margin-bottom:10px;letter-spacing:.04em">Build lasting value together</p>
           <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.6">With strong financial foundations in place, your business is positioned to grow, decide better, and build lasting value.</p>
@@ -135,130 +191,268 @@ body{font-family:var(--font-sans,system-ui,sans-serif);color:var(--text-primary,
     </div>
   </div>
 </section>
+<!-- Journey motion: each step fades/slides up into place, staggered
+     step-by-step, every time the Gold Journey section scrolls into view
+     (not just once) — replays like the pull-quote shimmer, so scrolling
+     back up and down keeps a sense of movement rather than settling once
+     and going static.
+
+     The steps are visible by default in the CSS (see .journey-step-wrap in
+     style.css) — this script only opts a browser INTO the fade/slide
+     entrance effect by adding .js-anim, once it has confirmed
+     IntersectionObserver actually exists to reveal them again afterwards.
+     If this script never runs at all (JS disabled/blocked), the steps
+     simply stay in their plain, always-visible state instead of being
+     stuck hidden. -->
+<script>
+(function(){
+  var row = document.querySelector('.journey-row');
+  if (!row) return;
+  if (!('IntersectionObserver' in window)) { return; }
+  // Someone with "reduce motion" set at the OS level should get the
+  // section the same way a no-JS visitor does: fully visible already,
+  // in its plain default CSS position, no fade/slide-in at all — never
+  // added here, so .journey-row.js-anim's CSS never gates visibility.
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { return; }
+  row.classList.add('js-anim');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('in-view');
+        void entry.target.offsetWidth;
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, {threshold: .3});
+  io.observe(row);
+})();
+</script>
 
 <!-- SERVICES -->
-<section style="padding:76px 0;background:#fff">
+<!-- Redesign note: cards were plain text under a circular gold icon badge —
+     Andy found the badges pointless-looking ("what are the golden dots
+     for?") and boring overall. Circular badges are now off the table
+     site-wide (see build notes), so each card is a real link straight into
+     the matching services.html section (anchors #service-01.."06"), with a
+     large faint numeral for identity, a small inline icon beside the
+     heading instead of a badge, and a "Learn more" indicator that animates
+     on hover — the card now does something, rather than just sitting there.
+     Fixed 3-per-row grid (was auto-fit, which produced an uneven 4-then-2
+     split). Each card now leads with a photo — the same stock placeholders
+     already used on services.html for that service (and the same SVG
+     illustration for Tax & compliance, since no real tax-document stock
+     photo exists) — swap these for Andy's own photos once he sends them,
+     same as services.html. The old separate "Body corporates & HOAs
+     spotlight" section below this grid was removed at Andy's request, so
+     that service now gets the same card treatment as the other five
+     instead of a bigger, different-looking feature block. -->
+<section class="section bg-white">
   <div class="w">
-    <h2 style="font-size:26px;font-weight:700;color:var(--n)">What we do</h2>
-    <div class="r"></div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px">
-      <div style="border:0.5px solid var(--border,#ddd);border-left:3px solid var(--g);padding:26px 20px;background:#fff">
-        <i class="ti ti-file-text" style="font-size:22px;color:var(--g);display:block;margin-bottom:14px" aria-hidden="true"></i>
-        <h3 style="font-size:14.5px;font-weight:700;color:var(--n);margin-bottom:8px;line-height:1.3">Annual financial statements</h3>
-        <p style="font-size:13px;line-height:1.6;color:var(--ch)">Compiled per ISRS 4410 (Revised) and IFRS. Includes a full Operating &amp; Financial Overview Report as standard.</p>
-      </div>
-      <div style="border:0.5px solid var(--border,#ddd);border-left:3px solid var(--g);padding:26px 20px;background:#fff">
-        <i class="ti ti-receipt-tax" style="font-size:22px;color:var(--g);display:block;margin-bottom:14px" aria-hidden="true"></i>
-        <h3 style="font-size:14.5px;font-weight:700;color:var(--n);margin-bottom:8px;line-height:1.3">Tax &amp; compliance</h3>
-        <p style="font-size:13px;line-height:1.6;color:var(--ch)">Income tax, provisional tax, VAT, and PAYE managed through SARS. Tax computation included with every AFS.</p>
-      </div>
-      <div style="border:0.5px solid var(--border,#ddd);border-left:3px solid var(--g);padding:26px 20px;background:#fff">
-        <i class="ti ti-calculator" style="font-size:22px;color:var(--g);display:block;margin-bottom:14px" aria-hidden="true"></i>
-        <h3 style="font-size:14.5px;font-weight:700;color:var(--n);margin-bottom:8px;line-height:1.3">Bookkeeping &amp; payroll</h3>
-        <p style="font-size:13px;line-height:1.6;color:var(--ch)">Monthly bookkeeping, bank reconciliations, and payroll administration to keep records year-end ready.</p>
-      </div>
-      <div style="border:0.5px solid var(--border,#ddd);border-left:3px solid var(--g);padding:26px 20px;background:#fff">
-        <i class="ti ti-chart-line" style="font-size:22px;color:var(--g);display:block;margin-bottom:14px" aria-hidden="true"></i>
-        <h3 style="font-size:14.5px;font-weight:700;color:var(--n);margin-bottom:8px;line-height:1.3">Business advisory</h3>
-        <p style="font-size:13px;line-height:1.6;color:var(--ch)">Financial planning, cash flow forecasting, and practical insight to support better business decisions.</p>
-      </div>
+    <h2 class="section-title">What we do</h2>
+    <span class="r"></span>
+    <div class="grid-auto grid-services">
+      <a href="services.html#service-01" class="card service">
+        <div class="service-card-img">
+          <img src="https://images.unsplash.com/photo-1770938474431-d1192cac9642?w=1000&q=80&fit=crop&auto=format" onerror="this.remove()" alt="Aerial view of a planned residential neighbourhood with streets and greenery" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-card-num">01</span>
+          <div class="service-card-head">
+            <i class="ti ti-building-community icon" aria-hidden="true"></i>
+            <h3>Body corporates &amp; HOAs</h3>
+          </div>
+          <p>Annual financial statements, draft budgets and levy schedules for sectional title schemes and homeowners associations, known for our accuracy and fast turnaround, with audits handled by specialist partners.</p>
+          <span class="service-card-more">Learn more <i class="ti ti-arrow-narrow-right icon" aria-hidden="true" style="margin-bottom:0;font-size:14px"></i></span>
+        </div>
+      </a>
+      <a href="services.html#service-02" class="card service">
+        <div class="service-card-img">
+          <img src="assets/img/service-afs.jpg" alt="A completed set of annual financial statements, Statement of Financial Position page, held in hand" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-card-num">02</span>
+          <div class="service-card-head">
+            <i class="ti ti-file-text icon" aria-hidden="true"></i>
+            <h3>Annual financial statements</h3>
+          </div>
+          <p>Compiled per ISRS 4410 (Revised) and IFRS. Includes a full Operating &amp; Financial Overview Report as standard.</p>
+          <span class="service-card-more">Learn more <i class="ti ti-arrow-narrow-right icon" aria-hidden="true" style="margin-bottom:0;font-size:14px"></i></span>
+        </div>
+      </a>
+      <a href="services.html#service-03" class="card service">
+        <div class="service-card-img">
+          <img src="assets/img/service-tax-compliance.jpg" alt="IFRS Accounting Standards reference volumes on a bookshelf" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-card-num">03</span>
+          <div class="service-card-head">
+            <i class="ti ti-receipt-tax icon" aria-hidden="true"></i>
+            <h3>Tax &amp; compliance</h3>
+          </div>
+          <p>Income tax, provisional tax, VAT, and PAYE managed through SARS. Tax computation included with every AFS.</p>
+          <span class="service-card-more">Learn more <i class="ti ti-arrow-narrow-right icon" aria-hidden="true" style="margin-bottom:0;font-size:14px"></i></span>
+        </div>
+      </a>
+      <a href="services.html#service-04" class="card service">
+        <div class="service-card-img">
+          <img src="assets/img/service-bookkeeping.jpg" alt="Hand writing in a desk diary beside a calculator" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-card-num">04</span>
+          <div class="service-card-head">
+            <i class="ti ti-calculator icon" aria-hidden="true"></i>
+            <h3>Bookkeeping</h3>
+          </div>
+          <p>Monthly bookkeeping and bank reconciliations, priced per transaction so it scales fairly with the size of your business.</p>
+          <span class="service-card-more">Learn more <i class="ti ti-arrow-narrow-right icon" aria-hidden="true" style="margin-bottom:0;font-size:14px"></i></span>
+        </div>
+      </a>
+      <a href="services.html#service-05" class="card service">
+        <div class="service-card-img">
+          <img src="assets/img/service-payroll.jpg" alt="A completed monthly payslip beside a calculator and laptop" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-card-num">05</span>
+          <div class="service-card-head">
+            <i class="ti ti-users icon" aria-hidden="true"></i>
+            <h3>Payroll</h3>
+          </div>
+          <p>Accurate, on-time payroll every cycle, including EMP201/EMP501 reconciliation with IRP5 certificates, and Compensation Fund returns.</p>
+          <span class="service-card-more">Learn more <i class="ti ti-arrow-narrow-right icon" aria-hidden="true" style="margin-bottom:0;font-size:14px"></i></span>
+        </div>
+      </a>
+      <a href="services.html#service-06" class="card service">
+        <div class="service-card-img">
+          <img src="assets/img/service-business-advisory.jpg" alt="Two people working together at a desk, reviewing figures on a laptop and in a notebook" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-card-num">06</span>
+          <div class="service-card-head">
+            <i class="ti ti-chart-line icon" aria-hidden="true"></i>
+            <h3>Business advisory</h3>
+          </div>
+          <p>Financial planning, cash flow forecasting, and practical insight to support better business decisions.</p>
+          <span class="service-card-more">Learn more <i class="ti ti-arrow-narrow-right icon" aria-hidden="true" style="margin-bottom:0;font-size:14px"></i></span>
+        </div>
+      </a>
     </div>
+    <p style="margin-top:28px"><a href="services.html" style="color:var(--n);font-weight:700;font-size:13.5px;text-decoration:none;border-bottom:2px solid var(--g);padding-bottom:2px">See all services →</a></p>
   </div>
 </section>
 
-<!-- COMPANY VALUES -->
-<section style="padding:76px 0;background:var(--lg)">
+<!-- PULLQUOTE -->
+<section class="pullquote">
   <div class="w">
-    <p style="font-size:12px;color:var(--g);font-style:italic;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px">The elements of our practice</p>
-    <h2 style="font-size:26px;font-weight:700;color:var(--n)">What we stand for</h2>
-    <div class="r"></div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px">
+    <blockquote>Like gold, financial clarity is <em>refined</em>, not assumed.</blockquote>
+    <cite id="golden-standard-cite">The Golden Standard</cite>
+  </div>
+</section>
+<!-- Replays the shimmer sweep across "The Golden Standard" each time it
+     scrolls into view (not just once), per Andy's request that it "shines
+     as you scroll". Falls back to a static one-time shine if
+     IntersectionObserver isn't available. -->
+<script>
+(function(){
+  var el = document.getElementById('golden-standard-cite');
+  if (!el) return;
+  if (!('IntersectionObserver' in window)) { el.classList.add('shine'); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('shine');
+        void entry.target.offsetWidth;
+        entry.target.classList.add('shine');
+      }
+    });
+  }, {threshold: .6});
+  io.observe(el);
+})();
+</script>
 
-      <div style="background:#fff;padding:30px 24px;border:0.5px solid var(--border,#ddd);border-top:3px solid var(--g)">
-        <div style="width:40px;height:40px;border:1.5px solid var(--g);border-radius:4px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
-          <i class="ti ti-star" style="font-size:18px;color:var(--g)" aria-hidden="true"></i>
-        </div>
-        <h3 style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:8px">Excellence</h3>
-        <p style="font-size:13px;color:var(--ch);line-height:1.65">We hold every engagement to the golden standard — no exceptions and no shortcuts. Your financials deserve our best work.</p>
+<!-- TESTIMONIALS TEASER -->
+<section class="section bg-grey">
+  <div class="w">
+    <span class="eyebrow">What clients say</span>
+    <h2 class="section-title">Trusted by the businesses we serve</h2>
+    <span class="r"></span>
+    <div class="grid-auto" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr))">
+
+      <div class="card testimonial">
+        <img class="karat-plate" src="assets/img/karat-plate-24.png" alt="24K Gold Rating — pure gold">
+        <p class="quote">AU Accounting Services is incredibly efficient, having sorted out my tax issues within one day of me enlisting his service.</p>
+        <p class="attribution">N. Barlow<span>Individual</span></p>
       </div>
 
-      <div style="background:#fff;padding:30px 24px;border:0.5px solid var(--border,#ddd);border-top:3px solid var(--g)">
-        <div style="width:40px;height:40px;border:1.5px solid var(--g);border-radius:4px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
-          <i class="ti ti-shield-check" style="font-size:18px;color:var(--g)" aria-hidden="true"></i>
-        </div>
-        <h3 style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:8px">Reliability</h3>
-        <p style="font-size:13px;color:var(--ch);line-height:1.65">Consistent, accurate, and always on time. Like gold, our value lies in being dependable — year after year, engagement after engagement.</p>
+      <div class="card testimonial">
+        <img class="karat-plate" src="assets/img/karat-plate-24.png" alt="24K Gold Rating — pure gold">
+        <p class="quote">AU Accounting is the best! They provide you not just your basic accounting needs, but also assist you in growing and understanding your company and its needs. Their communication is clear, helpful and timely.</p>
+        <p class="attribution">M. Pretorius<span>Company</span></p>
       </div>
 
-      <div style="background:#fff;padding:30px 24px;border:0.5px solid var(--border,#ddd);border-top:3px solid var(--g)">
-        <div style="width:40px;height:40px;border:1.5px solid var(--g);border-radius:4px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
-          <i class="ti ti-refresh" style="font-size:18px;color:var(--g)" aria-hidden="true"></i>
-        </div>
-        <h3 style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:8px">Adaptability</h3>
-        <p style="font-size:13px;color:var(--ch);line-height:1.65">Financial landscapes shift. Regulations change. We evolve with you — adjusting our approach as your business and its needs grow.</p>
-      </div>
-
-      <div style="background:#fff;padding:30px 24px;border:0.5px solid var(--border,#ddd);border-top:3px solid var(--g)">
-        <div style="width:40px;height:40px;border:1.5px solid var(--g);border-radius:4px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
-          <i class="ti ti-scale" style="font-size:18px;color:var(--g)" aria-hidden="true"></i>
-        </div>
-        <h3 style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:8px">Integrity</h3>
-        <p style="font-size:13px;color:var(--ch);line-height:1.65">Uncompromising ethical standards in every interaction. SAICA-aligned conduct in everything we do. Your trust is our highest responsibility.</p>
+      <div class="card testimonial">
+        <img class="karat-plate" src="assets/img/karat-plate-24.png" alt="24K Gold Rating — pure gold">
+        <p class="quote">Being responsible for my own tax left me with months of worry and confusion - until I met AU Accounting Services. Within a short time, he expertly resolved my complex situation and gave me total clarity. He is professional, a joy to work with, and most importantly, completely transparent.</p>
+        <p class="attribution">R. Grobbelaar<span>Sole Proprietor</span></p>
       </div>
 
     </div>
+    <p style="margin-top:28px"><a href="reviews.html" style="color:var(--n);font-weight:700;font-size:13.5px;text-decoration:none;border-bottom:2px solid var(--g);padding-bottom:2px">See all reviews →</a></p>
   </div>
 </section>
 
-<!-- CREDENTIALS STRIP -->
-<div style="background:var(--n);padding:18px 40px;text-align:center">
-  <p style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#fff">
-    Professional Accountant (SA)<span style="color:var(--g);margin:0 11px" aria-hidden="true">·</span>ISRS 4410 (Revised)<span style="color:var(--g);margin:0 11px" aria-hidden="true">·</span>International Financial Reporting Standards<span style="color:var(--g);margin:0 11px" aria-hidden="true">·</span>SARS Registered Tax Practitioner
-  </p>
-</div>
 
 <!-- CTA -->
-<section style="padding:80px 0;background:#fff;text-align:center">
+<section class="section bg-white" style="text-align:center">
   <div class="w">
-    <span style="font-size:12px;color:var(--g);font-style:italic;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:12px">The golden standard</span>
+    <span class="eyebrow">The golden standard</span>
     <h2 style="font-size:28px;font-weight:700;color:var(--n);margin-bottom:12px">Every great outcome begins with refinement.</h2>
-    <p style="font-size:15px;color:var(--ch);margin-bottom:30px;max-width:480px;margin-left:auto;margin-right:auto">Let us help you refine your financial decision making — with clarity, precision, and the standard your business deserves.</p>
-    <button style="background:var(--g);color:var(--n);border:none;padding:14px 34px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-radius:4px">Schedule a consultation</button>
+    <p style="font-size:15px;color:var(--ch);margin-bottom:30px;max-width:480px;margin-left:auto;margin-right:auto">Let us help you refine your financial decision making with clarity, precision, and the standard your business deserves.</p>
+    <a href="contact.html" class="btn btn-gold" style="padding:14px 34px;font-size:13px">Schedule a consultation</a>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer style="background:var(--n)">
-  <div style="height:2px;background:var(--g)"></div>
-  <div class="w" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:40px;padding-top:52px;padding-bottom:42px">
+<footer class="site-footer">
+  <div class="rule"></div>
+  <div class="w footer-grid">
     <div>
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
-        <div class="tile" style="width:48px;height:48px"><span class="t79" style="font-size:9.5px">79</span><span class="tau" style="font-size:21px">Au</span><span class="twt" style="font-size:9.5px">196.97</span></div>
-        <div><div class="wm-n" style="font-size:11.5px">Accounting Services</div><div class="wm-r"></div><div class="wm-t" style="font-size:9.5px">The Golden Standard</div></div>
+      <a href="index.html" class="brand sm">
+        <img src="assets/img/logo-inverted.png" alt="AU Accounting Services — The Golden Standard" class="logo-img sm">
+      </a>
+      <p style="font-size:12px;color:rgba(255,255,255,.5);line-height:1.75;max-width:260px">To raise the standard of business in South Africa through industry-leading expertise, practical experience and client&nbsp;education: empowering businesses to make informed decisions, grow with confidence and achieve lasting success.</p>
+    </div>
+    <div>
+      <h4>Navigation</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <div class="footer-contact-methods">
+        <a href="tel:+27763560662" class="footer-contact-method">
+          <i class="ti ti-phone icon" aria-hidden="true"></i>
+          <span>076 356 0662</span>
+        </a>
+        <a href="mailto:info@auservices.co.za" class="footer-contact-method">
+          <i class="ti ti-mail icon" aria-hidden="true"></i>
+          <span>info@auservices.co.za</span>
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&query=25+Kgaka+Street%2C+Van+der+Hoff+Park%2C+Potchefstroom%2C+2531" class="footer-contact-method" style="align-items:flex-start" target="_blank" rel="noopener">
+          <i class="ti ti-map-pin icon" aria-hidden="true" style="margin-top:2px"></i>
+          <span>25 Kgaka Street, Van der Hoff Park, Potchefstroom, 2531</span>
+        </a>
       </div>
-      <p style="font-size:12px;color:rgba(255,255,255,.5);line-height:1.75;max-width:230px;margin-bottom:10px">Financial excellence, refined.</p>
-      <p style="font-size:12px;color:rgba(255,255,255,.4);line-height:1.75;max-width:230px">AU Services (Pty) Ltd — professional accounting and financial services for South African businesses.</p>
-    </div>
-    <div>
-      <h4 style="font-size:10.5px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px">Navigation</h4>
-      <a href="#" style="display:block;color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;margin-bottom:8px">Home</a>
-      <a href="#" style="display:block;color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;margin-bottom:8px">Services</a>
-      <a href="#" style="display:block;color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;margin-bottom:8px">About</a>
-      <a href="#" style="display:block;color:rgba(255,255,255,.6);text-decoration:none;font-size:13px">Contact</a>
-    </div>
-    <div style="text-align:right">
-      <h4 style="font-size:10.5px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px">Contact</h4>
-      <p style="font-size:12.5px;color:rgba(255,255,255,.6);line-height:1.9">
-        <strong style="color:#fff;display:block;font-size:13px">AU Services (Pty) Ltd</strong>
-        A. Urquhart · Professional Accountant (SA)<br>
-        25 Kgaka Street, Van der Hoff Park<br>
-        Potchefstroom, North West, 2531<br>
-        076 356 0662<br>
-        andrewurq151@gmail.com
-      </p>
     </div>
   </div>
-  <div style="border-top:1px solid rgba(255,255,255,.1);text-align:center;padding:16px 40px">
-    <p style="font-size:11px;color:rgba(255,255,255,.32)">© 2025 AU Accounting Services (AU Services (Pty) Ltd). All rights reserved.</p>
+  <div class="footer-bottom">
+    <p>© <span id="copyright-year">2026</span> AU Accounting Services (AU Services (Pty) Ltd). All rights reserved.</p>
   </div>
 </footer>
+
+<script src="assets/js/press-feedback.js"></script>
+<script src="assets/js/year.js"></script>
+</body>
+</html>
