@@ -26,7 +26,7 @@
   rather than a submit button that silently does nothing.
 */
 (function () {
-  var WEB3FORMS_ACCESS_KEY = "PASTE-YOUR-WEB3FORMS-ACCESS-KEY-HERE";
+  var WEB3FORMS_ACCESS_KEY = "621a0d0d-6630-4719-8c97-72bfb6d6d589";
 
   function isKeySet() {
     return WEB3FORMS_ACCESS_KEY && WEB3FORMS_ACCESS_KEY.indexOf("PASTE-YOUR") !== 0;
