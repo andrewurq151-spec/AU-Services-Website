@@ -1,0 +1,29 @@
+# AU Accounting Services (www.auservices.co.za)
+# No pages are restricted — search engines and AI assistants are both
+# welcome to crawl the full site.
+
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://www.auservices.co.za/sitemap.xml
