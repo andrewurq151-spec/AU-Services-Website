@@ -60,8 +60,17 @@
     icon.innerHTML = ok
       ? '<i class="ti ti-check"></i>'
       : '<i class="ti ti-alert-triangle"></i>';
+    box.appendChild(icon);
 
-    var body = document.createElement("div");
+    // Success gets the site's existing double gold rule (.r, also used
+    // under section headings) between the icon and the title; the error
+    // state skips it — a mistake isn't a "golden standard" moment.
+    if (ok) {
+      var rule = document.createElement("span");
+      rule.className = "r";
+      box.appendChild(rule);
+    }
+
     var title = document.createElement("p");
     title.className = "form-result-title";
     var text = document.createElement("p");
@@ -77,10 +86,8 @@
         '<a href="mailto:info@auservices.co.za">info@auservices.co.za</a>.';
     }
 
-    body.appendChild(title);
-    body.appendChild(text);
-    box.appendChild(icon);
-    box.appendChild(body);
+    box.appendChild(title);
+    box.appendChild(text);
     form.appendChild(box);
 
     // On success, hide the (now-reset, now-empty) fields and submit button

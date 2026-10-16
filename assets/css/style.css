@@ -488,30 +488,39 @@ section[id^="service-"] { scroll-margin-top: 90px; }
 
 /* Confirmation shown in place of the Contact / Leave-a-review forms after a
    successful (or failed) submission — built by assets/js/form-submit.js.
-   Styled as an on-brand card (gold left-border + light-grey fill, same
-   pattern as the "Office hours" box) rather than a plain line of text, with
-   an icon badge and a two-line title/body layout, and a small fade-and-rise
-   entrance so it reads as a confirmation rather than a layout jump. */
+   "Refined Gold Card": a centered, self-contained card with a soft
+   gold-tinted gradient fill, a larger gold checkmark badge with its own
+   glow, and the site's existing double gold rule (.r) underneath it —
+   the same divider already used under section headings — sized down to
+   sit between the icon and the title. A small fade-and-rise entrance
+   (unchanged) keeps it reading as a confirmation rather than a layout
+   jump, materializing in place rather than just snapping into view. */
 .form-result {
-  display: flex; align-items: flex-start; gap: 14px;
-  margin-top: 18px; padding: 18px 20px; border-radius: 4px;
-  background: var(--lg); border-left: 3px solid var(--g);
+  text-align: center;
+  margin-top: 18px; padding: 30px 24px 26px; border-radius: 8px;
+  background: linear-gradient(180deg, #fffdf7, #fff);
+  border: 1px solid rgba(212,175,55,.35);
   animation: formResultIn .35s ease;
 }
 .form-result-icon {
-  flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+  width: 54px; height: 54px; border-radius: 50%; margin: 0 auto 16px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 17px; background: var(--g); color: var(--n);
+  font-size: 24px; background: var(--g); color: var(--n);
+  box-shadow: 0 6px 18px rgba(212,175,55,.35);
 }
-.form-result-title { font-size: 14px; font-weight: 800; color: var(--n); margin-bottom: 3px; }
-.form-result-text { font-size: 13.5px; color: var(--ch); line-height: 1.6; }
+.form-result .r { max-width: 40px; margin: 0 auto 14px; }
+.form-result-title { font-size: 15.5px; font-weight: 800; color: var(--n); margin-bottom: 6px; }
+.form-result-text { font-size: 13.5px; color: var(--ch); line-height: 1.65; max-width: 320px; margin: 0 auto; }
 .form-result-text a { color: var(--n); font-weight: 700; }
-.form-result--error { background: #fdecea; border-left-color: #b3261e; }
-.form-result--error .form-result-icon { background: #b3261e; color: #fff; }
+.form-result--error { background: #fdecea; border-color: rgba(179,38,30,.3); }
+.form-result--error .form-result-icon { background: #b3261e; color: #fff; box-shadow: 0 6px 18px rgba(179,38,30,.3); }
 .form-result--error .form-result-title { color: #b3261e; }
 @keyframes formResultIn {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .form-result { animation: none; }
 }
 
 /* Leave-a-review dialog (Reviews page) */
