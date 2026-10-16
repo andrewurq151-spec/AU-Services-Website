@@ -32,6 +32,20 @@
     return WEB3FORMS_ACCESS_KEY && WEB3FORMS_ACCESS_KEY.indexOf("PASTE-YOUR") !== 0;
   }
 
+  // Undoes showResult()'s success state — removes the confirmation card and
+  // un-hides whichever fields/button it hid — so a form inside a <dialog>
+  // (the "Leave a review" popup) looks freshly blank the next time it's
+  // opened, rather than still showing last time's confirmation or missing
+  // fields.
+  function resetFormDisplay(form) {
+    var existing = form.querySelector(".form-result");
+    if (existing) existing.remove();
+    for (var i = 0; i < form.children.length; i++) {
+      form.children[i].style.display = "";
+    }
+    form.reset();
+  }
+
   function showResult(form, ok, okMessage, okTitle) {
     var existing = form.querySelector(".form-result");
     if (existing) existing.remove();
@@ -68,9 +82,42 @@
     box.appendChild(icon);
     box.appendChild(body);
     form.appendChild(box);
+
+    // On success, hide the (now-reset, now-empty) fields and submit button
+    // so the visitor sees a clean confirmation card instead of an emptied
+    // form sitting above it.
+    if (ok) {
+      var i, child;
+      for (i = 0; i < form.children.length; i++) {
+        child = form.children[i];
+        if (child !== box) child.style.display = "none";
+      }
+
+      // If this form lives inside a <dialog> (the "Leave a review" popup),
+      // let the visitor read the confirmation for a moment, then close the
+      // dialog itself so it doesn't just sit there open and empty.
+      var dialog = form.closest ? form.closest("dialog") : null;
+      if (dialog && typeof dialog.close === "function") {
+        setTimeout(function () {
+          dialog.close();
+        }, 3200);
+      }
+    }
   }
 
   function handleSubmit(form) {
+    // If this form lives inside a <dialog> (the "Leave a review" popup),
+    // wipe its success state back to blank every time that dialog closes —
+    // whether it auto-closed after a successful submit, or the visitor
+    // dismissed it with the × button — so it opens fresh next time rather
+    // than still showing last time's confirmation or hidden fields.
+    var ownerDialog = form.closest ? form.closest("dialog") : null;
+    if (ownerDialog) {
+      ownerDialog.addEventListener("close", function () {
+        resetFormDisplay(form);
+      });
+    }
+
     form.addEventListener("submit", function (e) {
       // If the access key hasn't been set up yet, let the form fall through
       // to its normal mailto: action instead of silently failing.
